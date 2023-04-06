@@ -97,9 +97,9 @@ const Data = () => {
         .from("wandertable")
         .select("temp, hum, id") //columns to select from the database
         .gt('temp',40)
-        .eq("id", user?.id) //comparison function to return only data with the user id matching the current logged in user
+        // .eq("id", user?.id) //comparison function to return only data with the user id matching the current logged in user
         //check if the done column is equal to false
-        // .order("id", { ascending: false }); // sort the data so the last item comes on top;
+        .order("id", { ascending: false }); // sort the data so the last item comes on top;
       console.log(Reco);
       if (Reco != null) {
         setReco(Reco); // [product1,product2,product3]
@@ -136,8 +136,44 @@ const Data = () => {
                  ))}
   </tbody>
 </table>
-         
+         <h2>Records having greater than 40 temp</h2>
+
+         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    id
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Temp
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Humidity
+                </th>
+                
+            </tr>
+        </thead>
+        <tbody>
+        {Reco.map((Record)=>(
+            <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                {Record.id}
+                </th>
+                <td class="px-6 py-4">
+                {Record.temp}
+                </td>
+                <td class="px-6 py-4">
+                {Record.hum}
+                </td>
+                
+            </tr>
+            ))}
             
+        </tbody>
+    </table>
+</div>
+        
             
 
 
