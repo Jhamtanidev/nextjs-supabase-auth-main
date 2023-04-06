@@ -29,6 +29,9 @@ export default async function Profile() {
         Go Home
       </Link>
       <SignOut />
+      
+      </div>
+      <div className='card' >
       <Account  />
       </div>
     </div>

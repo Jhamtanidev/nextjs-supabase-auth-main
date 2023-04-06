@@ -16,7 +16,7 @@
   }
 
   .card {
-    @apply column min-w-[20rem] min-h-[100rem] items-center gap-8 rounded-2xl bg-white py-8 px-4 shadow-md sm:min-w-[24rem] sm:px-10;
+    @apply column min-w-[20rem]   items-center gap-8 rounded-2xl bg-white py-8 px-4 shadow-md sm:min-w-[24rem] sm:px-10;
   }
 
   .column {
@@ -50,4 +50,8 @@
   .row {
     @apply flex flex-row items-center justify-start gap-1;
   }
+  .table-auto{
+    @layer .table-auto hover bg-sky-500 group flex items-center;
+  }
+  
 }

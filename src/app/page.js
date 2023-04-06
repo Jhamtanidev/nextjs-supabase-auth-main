@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Auth from 'src/components/Auth';
 import { useAuth, VIEWS } from 'src/components/AuthProvider';
 import Account from "../components/Account";
+import Data from '@/components/Data';
 // import { ThemeSupa } from '@supabase/auth-ui-shared';
 // import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react';
 
@@ -35,8 +36,10 @@ export default function Home() {
         </button>
       </div>
        <div className="container" style={{ padding: '50px 0 100px 0' }}>
-       
-        
+      
+      <p>hey there
+      </p>
+        <Data />
        
      </div>
      </div>
