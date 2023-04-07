@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from 'react'
-import { useAuth } from './AuthProvider'
+import { useAuth } from '../../components/AuthProvider'
 import supabase from 'src/lib/supabase-browser';
 
 
@@ -75,7 +75,7 @@ const Data = () => {
       setLoading(true);
       const { data: Records } = await supabase
         .from("wandertable")
-        .select("temp, hum, id") //columns to select from the database
+        .select("temp, hum, id,pres,alt") //columns to select from the database
         // .eq("id", user?.id) //comparison function to return only data with the user id matching the current logged in user
         //check if the done column is equal to false
         .order("id", { ascending: false }); // sort the data so the last item comes on top;
@@ -95,7 +95,7 @@ const Data = () => {
       setLoading(true);
       const { data: Reco } = await supabase
         .from("wandertable")
-        .select("temp, hum, id") //columns to select from the database
+        .select("temp, hum, id,alt,pres") //columns to select from the database
         .gt('temp',40)
         // .eq("id", user?.id) //comparison function to return only data with the user id matching the current logged in user
         //check if the done column is equal to false
@@ -114,28 +114,56 @@ const Data = () => {
 
   
   return (
-    
+  <div className='dashboard'>  
 <div className='container'>
           
-<table className="table-auto">
-  <thead>
-    <tr>
-      <th>id</th>
-      <th>Temp</th>
-      <th>Humidity</th>
-    </tr>
-  </thead>
-  <tbody>
-  {Records.map((Record)=>(
-                <tr>
-                  <td>{Record.id}</td>
-
-                  <td>{Record.temp}</td>
-                  <td>{Record.hum}</td>
-                </tr>
-                 ))}
-  </tbody>
-</table>
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    id
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Temp
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Altitude
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Pressure
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Humidity
+                </th>
+                
+            </tr>
+        </thead>
+        <tbody>
+        {Records.map((Record)=>(
+            <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                {Record.id}
+                </th>
+                <td class="px-6 py-4">
+                {Record.temp}
+                </td>
+                <td class="px-6 py-4">
+                {Record.alt}
+                </td>
+                <td class="px-6 py-4">
+                {Record.pres}
+                </td>
+                <td class="px-6 py-4">
+                {Record.hum}
+                </td>
+                
+            </tr>
+            ))}
+            
+        </tbody>
+    </table>
+</div>
          <h2>Records having greater than 40 temp</h2>
 
          <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -147,6 +175,12 @@ const Data = () => {
                 </th>
                 <th scope="col" class="px-6 py-3">
                     Temp
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Altitude
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Pressure
                 </th>
                 <th scope="col" class="px-6 py-3">
                     Humidity
@@ -164,6 +198,12 @@ const Data = () => {
                 {Record.temp}
                 </td>
                 <td class="px-6 py-4">
+                {Record.alt}
+                </td>
+                <td class="px-6 py-4">
+                {Record.pres}
+                </td>
+                <td class="px-6 py-4">
                 {Record.hum}
                 </td>
                 
@@ -173,7 +213,7 @@ const Data = () => {
         </tbody>
     </table>
 </div>
-        
+</div>
             
 
 
