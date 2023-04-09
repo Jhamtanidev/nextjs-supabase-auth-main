@@ -34,6 +34,11 @@ export default async function Profile() {
       <div className='card' >
       <Account  />
       </div>
+
+
+
+
+      
     </div>
   );
 }

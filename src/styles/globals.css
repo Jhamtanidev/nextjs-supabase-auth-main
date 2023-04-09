@@ -8,11 +8,11 @@
   }
 
   .button {
-    @apply custom-focus rounded-full border-2 border-green-400 bg-white px-8 py-2 font-bold text-green-400 hover:bg-green-400 hover:text-white focus:bg-green-400 focus:text-white;
+    @apply custom-focus rounded-full border-2 border-blue-400 bg-white px-8 py-2 font-bold text-blue-400 hover:bg-blue-400 hover:text-white focus:bg-blue-400 focus:text-white;
   }
 
   .button-inverse {
-    @apply custom-focus rounded-full border-2 border-white bg-green-400 px-8 py-2 font-bold text-white hover:border-green-400 hover:bg-white hover:text-green-400 focus:border-green-400 focus:bg-white focus:text-green-400;
+    @apply custom-focus rounded-full border-2 border-white bg-blue-400 px-8 py-2 font-bold text-white hover:border-blue-400 hover:bg-white hover:text-blue-400 focus:border-blue-400 focus:bg-white focus:text-blue-400;
   }
 
   .card {
@@ -24,7 +24,7 @@
   }
 
   .custom-focus {
-    @apply focus:border-green-400 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-offset-2;
+    @apply focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2;
   }
 
   .heading {
@@ -44,7 +44,7 @@
   }
 
   .link {
-    @apply custom-focus rounded-md font-semibold text-green-400;
+    @apply custom-focus rounded-md font-semibold text-blue-400;
   }
 
   .row {
