@@ -4,6 +4,7 @@ import { useState } from 'react';
 import cn from 'classnames';
 import { Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
+import "../Auth/SignIn.css";
 
 import { useAuth, VIEWS } from 'src/components/AuthProvider';
 import supabase from 'src/lib/supabase-browser';
@@ -29,6 +30,7 @@ const SignIn = () => {
   }
 
   return (
+   
     <div className="card">
       <h2 className="w-full text-center">Sign In</h2>
       <Formik
@@ -67,12 +69,14 @@ const SignIn = () => {
             <button
               className="link w-full"
               type="button"
+              
               onClick={() => setView(VIEWS.FORGOTTEN_PASSWORD)}
+              style={{color:"blue",border:"blue"}}
             >
               Forgot your password?
             </button>
 
-            <button className="button-inverse w-full" type="submit">
+            <button className="button-inverse w-full" type="submit" style={{color:"blue",backgroundColor:"#d8f9ff",border:"black"}}>
               Submit
             </button>
           </Form>
@@ -83,10 +87,12 @@ const SignIn = () => {
         className="link w-full"
         type="button"
         onClick={() => setView(VIEWS.SIGN_UP)}
+        style={{color:"blue",border:"blue"}}
       >
         Don&apos;t have an account? Sign Up.
       </button>
     </div>
+
   );
 };
 
