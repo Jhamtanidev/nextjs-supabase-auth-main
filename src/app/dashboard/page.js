@@ -74,11 +74,11 @@ const Data = () => {
     try {
       setLoading(true);
       const { data: Records } = await supabase
-        .from("wandertable")
-        .select("temp, hum, id,pres,alt") //columns to select from the database
+        .from("wanderfloatesp")
+        .select("ph,tds,turb,temp,sol_vol,bat_vol,created_at") //columns to select from the database
         // .eq("id", user?.id) //comparison function to return only data with the user id matching the current logged in user
         //check if the done column is equal to false
-        .order("id", { ascending: false }); // sort the data so the last item comes on top;
+        // .order("id", { ascending: false }); // sort the data so the last item comes on top;
       console.log(Records);
       if (Records != null) {
         setRecords(Records); // [product1,product2,product3]
@@ -95,7 +95,7 @@ const Data = () => {
       setLoading(true);
       const { data: Reco } = await supabase
         .from("wandertable")
-        .select("temp, hum, id,alt,pres") //columns to select from the database
+        .select("id,temp, hum, id,alt,pres") //columns to select from the database
         .gt('temp',40)
         // .eq("id", user?.id) //comparison function to return only data with the user id matching the current logged in user
         //check if the done column is equal to false
@@ -123,20 +123,27 @@ const Data = () => {
     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
-                <th scope="col" class="px-6 py-3">
-                    id
+            <th scope="col" class="px-6 py-3">
+                    Created_at
                 </th>
+                
                 <th scope="col" class="px-6 py-3">
                     Temp
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Altitude
+                    pH
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Pressure
+                   Turbidity
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Humidity
+                  TDS
+                </th>
+                <th scope="col" class="px-6 py-3">
+                  Solar_voltage
+                </th>
+                <th scope="col" class="px-6 py-3">
+                  Battery_voltage
                 </th>
                 
             </tr>
@@ -145,21 +152,27 @@ const Data = () => {
         {Records.map((Record)=>(
             <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                {Record.id}
+                {Record.created_at}
                 </th>
+              
                 <td class="px-6 py-4">
                 {Record.temp}
                 </td>
                 <td class="px-6 py-4">
-                {Record.alt}
+                {Record.ph}
                 </td>
                 <td class="px-6 py-4">
-                {Record.pres}
+                {Record.turb}
                 </td>
                 <td class="px-6 py-4">
-                {Record.hum}
+                {Record.tds}
                 </td>
-                
+                <td class="px-6 py-4">
+                {Record.sol_vol}
+                </td>
+                <td class="px-6 py-4">
+                {Record.bat_vol}
+                </td>
             </tr>
             ))}
             
