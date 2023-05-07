@@ -6,7 +6,15 @@ import { useState, useEffect } from 'react';
 import { useAuth } from '../../components/AuthProvider';
 import supabase from 'src/lib/supabase-browser';
 import Example from './linechart';
-import Horizontalchart from './horizontal';
+import alertaverage, { Alertaverage, ControlledPopup } from './horizontal';
+// import MapWithSupabaseData from './map';
+import MapWithSupabaseData from './MapWithSupabaseData'
+import "./dashboard.css"
+import OlMap from './OLmap';
+import MyComponent from './OLmap';
+import Map from './OLmap';
+// import Olmap from './OLmap';
+// import OpenStreetMap from './OLmap';
 
 const Data = () => {
   const { user } = useAuth();
@@ -18,6 +26,7 @@ const Data = () => {
   const [RecopH, setRecopH] = useState([]);
   const [Recoturb, setRecoturb] = useState([]);
   const [Recotds, setRecotds] = useState([]);
+  const [RecoAvg, setRecoAvg] = useState([]);
 
   // useEffect(() => {
   //   if (user.email === null) {
@@ -39,6 +48,7 @@ const Data = () => {
     filtergetpHItems();
     filtergettdsItems();
     filtergetturbItems();
+    // filterAvg();
     // wanderfloatesp;
     // alertpop();
     // popup();
@@ -73,7 +83,8 @@ const Data = () => {
         filtergetpHItems();
         filtergettdsItems();
         filtergetturbItems();
-        popup();
+        // popup();
+        // filterAvg();
 
 
          
@@ -186,6 +197,34 @@ const Data = () => {
     setLoading(false);
   };
 
+  const filterAvg = async ()=>{
+    try {
+      setLoading(true);
+      const { data:RecoAvg, error } = await supabase.rpc('average');
+      
+      // const { data: RecoAvg } = await supabase
+      //   .from('wanderfloatesp')
+      //   .select('AVG(temp)') //columns to select from the database
+        // .in('created_at', function(subquery){
+        //   subquery.select('created_at')
+        //   .from('wanderfloatesp')
+        //   .order('created_at', { ascending: false })
+        //   .limit(10);
+        // });
+        // .eq('created_at')
+        // .limit(10);
+
+      if (RecoAvg != null) {
+        setRecoAvg(RecoAvg); // [product1,product2,product3]
+      }
+      console.log(RecoAvg);
+
+    } catch (error) {
+      console.log(error);
+    }
+    setLoading(false);
+
+  }
   // const alertpop = () => {
   //   console.log(Records.temp);
   //   setLoading(true);
@@ -198,6 +237,9 @@ const Data = () => {
   //   }
   //   setLoading(false);
   // };
+
+
+  
 
   const popup=()=>{
     if (Records.map(Record=>(Record.ph>10))) {
@@ -212,7 +254,7 @@ const Data = () => {
   return (
     <div className="dashboard" >
       
-      <div className="container" open={popup}>
+      <div className="container">
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
           <table class="w-full text-left text-sm text-gray-500 dark:text-gray-400">
             <thead class="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
@@ -466,9 +508,17 @@ const Data = () => {
         <Example records={Records.map((record) => record)} />
         {/* <Horizontalchart records={Records.map((record)=>record)}/> */}
       </div>
-
-      { Open ?  <Horizontalchart/> : false }
+    
       
+      {/* <div>  <MapWithSupabaseData />   hey               </div> */}
+      {/* { Open ?  <ControlledPopup/> : false }
+      { RecoAvg ?  <Alertaverage  newReco={Records.map((record) => record)} /> : false } */}
+      <div className='container'>
+      <Map />              
+
+
+<h5>avg of ph is {RecoAvg}</h5>
+      </div>
       // {/* <div>You are logged in and your email address is {user.email}</div> */}
     </div>
   );

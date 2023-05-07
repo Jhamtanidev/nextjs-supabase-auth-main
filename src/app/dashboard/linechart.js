@@ -6,22 +6,7 @@ import { Chart } from "chart.js";
 import './dashboard.css'
 function Example({records}) {
 
-  const [Reco, setReco] = useState([]);
-  const [RecopH, setRecopH] = useState([]);
-  const [Recoturb, setRecoturb] = useState([]);
-  const [Recotds, setRecotds] = useState([]);
-  const [RecoCa, setRecoCa] = useState([],10);
-
- const handle=()=>{ 
-  console.log(records);
-  {records.map((Record)=>(
-setReco(Record.temp),
-console.log(Record.temp),
-setRecopH(Record.ph),
-setRecotds(Record.tds),
-setRecoturb(Record.turb),
-setRecoCa(Record.created_at)
-  ))}}
+  
   
   useEffect(() => {
     var ctx = document.getElementById('myChart').getContext('2d');
@@ -59,7 +44,7 @@ setRecoCa(Record.created_at)
         ]
       },
     });
-    handle();
+    
   }, [records])
   
   
