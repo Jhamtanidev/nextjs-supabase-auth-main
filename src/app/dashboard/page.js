@@ -13,9 +13,10 @@ import "./dashboard.css"
 import OlMap from './OLmap';
 import MyComponent from './OLmap';
 import Map from './OLmap';
+// import Track from './OLmap';
 // import Olmap from './OLmap';
 // import OpenStreetMap from './OLmap';
-
+ 
 const Data = () => {
   const { user } = useAuth();
   
@@ -254,143 +255,142 @@ const Data = () => {
   return (
     <div className="dashboard" >
       
-      <div className="container">
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-          <table class="w-full text-left text-sm text-gray-500 dark:text-gray-400">
-            <thead class="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
+      <div className="container mx-auto">
+        <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+          <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
               <tr>
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" className="px-6 py-3">
                   Created_at
                 </th>
 
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" className="px-6 py-3">
                   Temp
                 </th>
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" className="px-6 py-3">
                   pH
                 </th>
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" className="px-6 py-3">
                   Turbidity
                 </th>
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" className="px-6 py-3">
                   TDS
                 </th>
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" className="px-6 py-3">
                   Solar_voltage
                 </th>
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" className="px-6 py-3">
                   Battery_voltage
                 </th>
               </tr>
             </thead>
             <tbody>
               {Records.map((Record) => (
-                <tr class="border-b bg-white dark:border-gray-700 dark:bg-gray-900">
+                <tr className="border-b bg-white dark:border-gray-700 dark:bg-gray-900 ">
                   <th
                     scope="row"
-                    class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
-                  >
+                    className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                     {Record.created_at}
                   </th>
 
-                  <td class="px-6 py-4">{Record.temp}</td>
-                  <td class="px-6 py-4">{Record.ph}</td>
-                  <td class="px-6 py-4">{Record.turb}</td>
-                  <td class="px-6 py-4">{Record.tds}</td>
-                  <td class="px-6 py-4">{Record.sol_vol}</td>
-                  <td class="px-6 py-4">{Record.bat_vol}</td>
+                  <td className="px-6 py-4">{Record.temp}</td>
+                  <td className="px-6 py-4">{Record.ph}</td>
+                  <td className="px-6 py-4">{Record.turb}</td>
+                  <td className="px-6 py-4">{Record.tds}</td>
+                  <td className="px-6 py-4">{Record.sol_vol}</td>
+                  <td className="px-6 py-4">{Record.bat_vol}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
-        <h2>Records having greater than 20 temp</h2>
+        <h2 className="mt-4 text-xl">Records having greater than 20 temp</h2>
 
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-          <table class="w-full text-left text-sm text-gray-500 dark:text-gray-400">
-            <thead class="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
+        <div className=" overflow-x-auto shadow-md sm:rounded-lg">
+          <table className="w-full text-left text-sm text-gray-500 dark:text-gray-400">
+            <thead className="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
               <tr>
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" className="px-6 py-3">
                   Created_at
                 </th>
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" className="px-6 py-3">
                   Temp
                 </th>
               </tr>
             </thead>
             <tbody>
               {Reco.map((Record) => (
-                <tr class="border-b bg-white dark:border-gray-700 dark:bg-gray-900">
+                <tr className="border-b bg-white dark:border-gray-700 dark:bg-gray-900">
                   <th
                     scope="row"
-                    class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
+                    className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
                   >
                     {Record.created_at}
                   </th>
-                  <td class="px-6 py-4">{Record.temp}</td>
+                  <td className="px-6 py-4">{Record.temp}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
 
-        <div className="align-items-right container">
-          <div class="card shadow-0 border">
-            <div class="card-body p-4">
-              <h4 class="sfw-normal mb-1">Temperature range</h4>
+        <div className="align-items-right mt-4 container">
+          <div className="card shadow-0 border">
+            <div className="card-body p-4">
+              <h4 className="sfw-normal mb-1">Temperature range</h4>
 
               <p>
                 Max: <strong>20°C</strong>, Min: <strong>10°C</strong>
               </p>
 
-              <div class="d-flex align-items-center flex-row">
-                <i class="fas fa-cloud fa-3x"></i>
+              <div className="d-flex align-items-center flex-row">
+                <i className="fas fa-cloud fa-3x"></i>
               </div>
             </div>
           </div>
         </div>
 
-        <h2>Records having greater than 8.5 pH</h2>
+        <h2 className="mt-4 text-xl">Records having greater than 8.5 pH</h2>
 
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-          <table class="w-full text-left text-sm text-gray-500 dark:text-gray-400">
-            <thead class="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
+        <div className="overflow-x-auto shadow-md sm:rounded-lg">
+          <table className="w-full text-left text-sm text-gray-500 dark:text-gray-400">
+            <thead className="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
               <tr>
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" className="px-6 py-3">
                   Created_at
                 </th>
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" className="px-6 py-3">
                   pH
                 </th>
               </tr>
             </thead>
             <tbody>
               {RecopH.map((Record) => (
-                <tr class="border-b bg-white dark:border-gray-700 dark:bg-gray-900">
+                <tr className="border-b bg-white dark:border-gray-700 dark:bg-gray-900">
                   <th
                     scope="row"
-                    class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
+                    className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
                   >
                     {Record.created_at}
                   </th>
-                  <td class="px-6 py-4">{Record.ph}</td>
+                  <td className="px-6 py-4">{Record.ph}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
 
-        <div className="align-items-right container">
-          <div class="card shadow-0 border">
-            <div class="card-body p-4">
-              <h3 class="sfw-normal mb-1">pH range</h3>
+        <div className="align-items-right mt-4  container">
+          <div className="card shadow-0 border">
+            <div className="card-body p-4">
+              <h3 className="sfw-normal mb-1">pH range</h3>
 
               <p>
                 Max: <strong>8.5</strong>, Min: <strong>6.5</strong>
               </p>
 
-              <div class="d-flex align-items-center flex-row">
-                <i class="fas fa-cloud fa-3x">
+              <div className="d-flex align-items-center flex-row">
+                <i className="fas fa-cloud fa-3x">
                   1.IS 10500-2012 Acceptable limits:6.5-8.5
                   <br />
                   permissible:No relaxation<br></br>
@@ -402,30 +402,30 @@ const Data = () => {
           </div>
         </div>
 
-        <h2>Records having greater than 5 NTU Turbidity</h2>
+        <h2 class="mt-4 text-xl">Records having greater than 5 NTU Turbidity</h2>
 
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-          <table class="w-full text-left text-sm text-gray-500 dark:text-gray-400">
-            <thead class="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
+        <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+          <table className="w-full text-left text-sm text-gray-500 dark:text-gray-400">
+            <thead className="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
               <tr>
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" className="px-6 py-3">
                   Created_at
                 </th>
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" className="px-6 py-3">
                   Turbidity
                 </th>
               </tr>
             </thead>
             <tbody>
               {Recoturb.map((Record) => (
-                <tr class="border-b bg-white dark:border-gray-700 dark:bg-gray-900">
+                <tr className="border-b bg-white dark:border-gray-700 dark:bg-gray-900">
                   <th
                     scope="row"
-                    class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
+                    className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
                   >
                     {Record.created_at}
                   </th>
-                  <td class="px-6 py-4">{Record.turb}</td>
+                  <td className="px-6 py-4">{Record.turb}</td>
                 </tr>
               ))}
             </tbody>
@@ -433,16 +433,16 @@ const Data = () => {
         </div>
 
         <div className="align-items-right container">
-          <div class="card shadow-0 border">
-            <div class="card-body p-4">
-              <h4 class="sfw-normal mb-1">Turbidity range</h4>
+          <div className="card shadow-0 border">
+            <div className="card-body p-4">
+              <h4 className="sfw-normal mb-1">Turbidity range</h4>
 
               <p>
                 Max: <strong>5 NTU</strong>, Min: <strong>1 NTU</strong>
               </p>
 
-              <div class="d-flex align-items-center flex-row">
-                <i class="fas fa-cloud fa-3x">
+              <div className="d-flex align-items-center flex-row">
+                <i className="fas fa-cloud fa-3x">
                   1.IS 10500:2010
                   <br />
                   Acceptable unit:1 NTU Permissible limits:5 NTU
@@ -456,44 +456,44 @@ const Data = () => {
         </div>
       </div>
       <h2>Records having greater than 2000 mg/l TDS</h2>
-      <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-        <table class="w-full text-left text-sm text-gray-500 dark:text-gray-400">
-          <thead class="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
+      <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <table className="w-full text-left text-sm text-gray-500 dark:text-gray-400">
+          <thead className="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
             <tr>
-              <th scope="col" class="px-6 py-3">
+              <th scope="col" className="px-6 py-3">
                 Created_at
               </th>
-              <th scope="col" class="px-6 py-3">
+              <th scope="col" className="px-6 py-3">
                 TDS
               </th>
             </tr>
           </thead>
           <tbody>
             {Recotds.map((Record) => (
-              <tr class="border-b bg-white dark:border-gray-700 dark:bg-gray-900">
+              <tr className="border-b bg-white dark:border-gray-700 dark:bg-gray-900">
                 <th
                   scope="row"
-                  class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
+                  className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
                 >
                   {Record.created_at}
                 </th>
-                <td class="px-6 py-4">{Record.tds}</td>
+                <td className="px-6 py-4">{Record.tds}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
       <div className="align-items-right container">
-        <div class="card shadow-0 border">
-          <div class="card-body p-4">
-            <h4 class="sfw-normal mb-1">TDS range</h4>
+        <div className="card shadow-0 border">
+          <div className="card-body p-4">
+            <h4 className="sfw-normal mb-1">TDS range</h4>
 
             <p>
               Max: <strong>2000 mg/l</strong>, Min: <strong>5000 mg/l</strong>
             </p>
 
-            <div class="d-flex align-items-center flex-row">
-              <i class="fas fa-cloud fa-3x">
+            <div className="d-flex align-items-center flex-row">
+              <i className="fas fa-cloud fa-3x">
                 1.IS 10500-2012
                 <br />
                 Acceptable limit:500 mg/I permissible:2000mg/l
@@ -514,7 +514,10 @@ const Data = () => {
       {/* { Open ?  <ControlledPopup/> : false }
       { RecoAvg ?  <Alertaverage  newReco={Records.map((record) => record)} /> : false } */}
       <div className='container'>
-      <Map />              
+      {/* <Map />    */}
+      {/* <OlMap />    */}
+      <MyComponent/> 
+             
 
 
 <h5>avg of ph is {RecoAvg}</h5>

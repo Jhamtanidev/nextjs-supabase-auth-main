@@ -27,10 +27,10 @@ export default async function RootLayout({ children }) {
         <Navbar/>
        </div>
        <section>
-  <div class='air air1'></div>
-  <div class='air air2'></div>
-  <div class='air air3'></div>
-  <div class='air air4'></div>
+  <div className='air air1'></div>
+  <div className='air air2'></div>
+  <div className='air air3'></div>
+  <div className='air air4'></div>
 
         <div className="flex min-h-screen flex-col items-center justify-center py-2">
           <main className="flex w-full flex-1 shrink-0 flex-col items-center justify-center px-8 text-center sm:px-20">
