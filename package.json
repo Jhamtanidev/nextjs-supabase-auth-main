@@ -1,7 +1,8 @@
 {
   "name": "nextjs-supabase-auth",
-  "author": "dev jhammtani ",
-  
+  "version": "1.0.1",
+  "author": "Mykhaylo Ryechkin",
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
