@@ -3,7 +3,7 @@ import React from 'react';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import { Chart } from "chart.js";
-import './dashboard.css'
+import './dashboard.module.css'
 function Example({records}) {
 
   

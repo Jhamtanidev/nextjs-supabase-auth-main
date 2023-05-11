@@ -3,8 +3,8 @@ import { redirect } from 'next/navigation';
 // import { useAuth } from '@/components/AuthProvider';
 import SignOut from 'src/components/SignOut';
 import createClient from 'src/lib/supabase-server';
-import Account from '@/components/Account';
-import "../profile/page.css";
+import Account from 'src/components/Account';
+import "../profile/page.module.css";
 
 export default async function Profile() {
   const supabase = createClient();

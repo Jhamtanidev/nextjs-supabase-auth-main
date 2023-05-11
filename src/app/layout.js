@@ -2,7 +2,7 @@
 import { AuthProvider } from 'src/components/AuthProvider';
 import createClient from 'src/lib/supabase-server';
 import Navbar from './Navbar/Navbar';
-import "../app/layout.css";
+// import "../app/layout.module.css";
 import 'src/styles/globals.css';
 import Footer from './Footer/footer';
 
@@ -22,7 +22,7 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en">
        
-      <body  >
+      <body>
        <div>
         <Navbar/>
        </div>

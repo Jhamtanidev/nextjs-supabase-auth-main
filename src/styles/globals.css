@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer base {
+  body {
+    background-image: url("../components/images/r5PAzL9.jpg");
+  }
   h2 {
     @apply py-4 text-4xl font-black text-gray-800;
   }

@@ -9,10 +9,10 @@ import Example from './linechart';
 import alertaverage, { Alertaverage, ControlledPopup } from './horizontal';
 // import MapWithSupabaseData from './map';
 import MapWithSupabaseData from './MapWithSupabaseData'
-import "./dashboard.css"
-import OlMap from './OLmap';
+import "./dashboard.module.css"
+// import OlMap from './OLmap';
 import MyComponent from './OLmap';
-import Map from './OLmap';
+// import Map from './OLmap';
 // import Track from './OLmap';
 // import Olmap from './OLmap';
 // import OpenStreetMap from './OLmap';

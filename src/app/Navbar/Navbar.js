@@ -1,6 +1,6 @@
 "use client"
 import {useState} from 'react'
-import "../Navbar/Navbar.css"
+// import "../Navbar/Navbar.module.css"
 function NavLink({to, children}) {
     return <a href={to} className={`mx-4`}>
     {children}
@@ -62,6 +62,9 @@ export default function Navbar() {
                 </NavLink>
                 <NavLink to="/dashboard">
                     DASHBOARD
+                </NavLink>
+                <NavLink to="/about">
+                    About
                 </NavLink>
             </div>
         </div>
