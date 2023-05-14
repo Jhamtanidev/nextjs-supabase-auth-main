@@ -1,5 +1,12 @@
 {
-  "extends": ["acme"],
+  "extends": [
+    "acme",
+    "next",
+    "next/core-web-vitals",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "prettier"
+  ],
   "rules": {
     "no-shadow": "warn",
     "no-unused-vars": "warn",

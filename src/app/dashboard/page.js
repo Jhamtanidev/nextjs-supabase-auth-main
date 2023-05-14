@@ -8,18 +8,18 @@ import supabase from 'src/lib/supabase-browser';
 import Example from './linechart';
 import alertaverage, { Alertaverage, ControlledPopup } from './horizontal';
 // import MapWithSupabaseData from './map';
-import MapWithSupabaseData from './MapWithSupabaseData'
-import "./dashboard.module.css"
+import MapWithSupabaseData from './MapWithSupabaseData';
+import './dashboard.module.css';
 // import OlMap from './OLmap';
 import MyComponent from './OLmap';
 // import Map from './OLmap';
 // import Track from './OLmap';
 // import Olmap from './OLmap';
 // import OpenStreetMap from './OLmap';
- 
+
 const Data = () => {
   const { user } = useAuth();
-  
+
   const [loading, setLoading] = useState(false);
   const [Open, setOpen] = useState(false);
   const [Records, setRecords] = useState([]);
@@ -86,10 +86,7 @@ const Data = () => {
         filtergetturbItems();
         // popup();
         // filterAvg();
-
-
-         
-        }
+      }
     )
     .subscribe();
 
@@ -149,7 +146,6 @@ const Data = () => {
       if (RecopH != null) {
         setRecopH(RecopH); // [product1,product2,product3]
         // { (RecopH>10) ?  <Horizontalchart/> : false }
-
       }
       // if (RecopH.map((Record)=>Record.ph>10)) {
       //   <Horizontalchart/>
@@ -198,34 +194,32 @@ const Data = () => {
     setLoading(false);
   };
 
-  const filterAvg = async ()=>{
+  const filterAvg = async () => {
     try {
       setLoading(true);
-      const { data:RecoAvg, error } = await supabase.rpc('average');
-      
+      const { data: RecoAvg, error } = await supabase.rpc('average');
+
       // const { data: RecoAvg } = await supabase
       //   .from('wanderfloatesp')
       //   .select('AVG(temp)') //columns to select from the database
-        // .in('created_at', function(subquery){
-        //   subquery.select('created_at')
-        //   .from('wanderfloatesp')
-        //   .order('created_at', { ascending: false })
-        //   .limit(10);
-        // });
-        // .eq('created_at')
-        // .limit(10);
+      // .in('created_at', function(subquery){
+      //   subquery.select('created_at')
+      //   .from('wanderfloatesp')
+      //   .order('created_at', { ascending: false })
+      //   .limit(10);
+      // });
+      // .eq('created_at')
+      // .limit(10);
 
       if (RecoAvg != null) {
         setRecoAvg(RecoAvg); // [product1,product2,product3]
       }
       console.log(RecoAvg);
-
     } catch (error) {
       console.log(error);
     }
     setLoading(false);
-
-  }
+  };
   // const alertpop = () => {
   //   console.log(Records.temp);
   //   setLoading(true);
@@ -239,26 +233,20 @@ const Data = () => {
   //   setLoading(false);
   // };
 
-
-  
-
-  const popup=()=>{
-    if (Records.map(Record=>(Record.ph>10))) {
-      setOpen(true)
-    
+  const popup = () => {
+    if (Records.map((Record) => Record.ph > 10)) {
+      setOpen(true);
     }
 
-    
     // { (Records.map((record) => record.ph)>10) ?  <Horizontalchart/> : false }
-  }
+  };
 
   return (
-    <div className="dashboard" >
-      
+    <div className="dashboard">
       <div className="container mx-auto">
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-          <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+          <table className="w-full text-left text-sm text-gray-500 dark:text-gray-400">
+            <thead className="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
               <tr>
                 <th scope="col" className="px-6 py-3">
                   Created_at
@@ -289,7 +277,8 @@ const Data = () => {
                 <tr className="border-b bg-white dark:border-gray-700 dark:bg-gray-900 ">
                   <th
                     scope="row"
-                    className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
+                  >
                     {Record.created_at}
                   </th>
 
@@ -334,7 +323,7 @@ const Data = () => {
           </table>
         </div>
 
-        <div className="align-items-right mt-4 container">
+        <div className="align-items-right container mt-4">
           <div className="card shadow-0 border">
             <div className="card-body p-4">
               <h4 className="sfw-normal mb-1">Temperature range</h4>
@@ -380,7 +369,7 @@ const Data = () => {
           </table>
         </div>
 
-        <div className="align-items-right mt-4  container">
+        <div className="align-items-right container  mt-4">
           <div className="card shadow-0 border">
             <div className="card-body p-4">
               <h3 className="sfw-normal mb-1">pH range</h3>
@@ -508,19 +497,15 @@ const Data = () => {
         <Example records={Records.map((record) => record)} />
         {/* <Horizontalchart records={Records.map((record)=>record)}/> */}
       </div>
-    
-      
       {/* <div>  <MapWithSupabaseData />   hey               </div> */}
       {/* { Open ?  <ControlledPopup/> : false }
       { RecoAvg ?  <Alertaverage  newReco={Records.map((record) => record)} /> : false } */}
-      <div className='container'>
-      {/* <Map />    */}
-      {/* <OlMap />    */}
-      <MyComponent/> 
-             
+      <div className="container">
+        {/* <Map />    */}
+        {/* <OlMap />    */}
+        <MyComponent />
 
-
-<h5>avg of ph is {RecoAvg}</h5>
+        <h5>avg of ph is {RecoAvg}</h5>
       </div>
       // {/* <div>You are logged in and your email address is {user.email}</div> */}
     </div>

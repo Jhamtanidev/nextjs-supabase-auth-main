@@ -21,7 +21,6 @@
 //   rovMarker.setLatLng([latitude, longitude]);
 // }
 
-
 // // Fetch the ROV coordinates from Supabase
 // supabase
 //   .from('latlong')
@@ -38,13 +37,12 @@
 //   .catch(error => {
 //     console.error('Error fetching ROV coordinates:', error);
 //   });
-  
 
 import { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import supabase from 'src/lib/supabase-browser';
-import './olmap.module.css'
+import './olmap.module.css';
 
 function Map({ markers, onClick }) {
   const handleClickMap = (event) => {
@@ -59,7 +57,11 @@ function Map({ markers, onClick }) {
       style={{ height: '500px', width: '100%' }}
       onClick={handleClickMap}
     >
-      <TileLayer url="https://tile.openstreetmap.org/{z}/{x}/{y}.png" maxZoom={19} attribution="© OpenStreetMap" />
+      <TileLayer
+        url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
+        maxZoom={19}
+        attribution="© OpenStreetMap"
+      />
 
       {/* Render markers */}
       {markers.map((marker) => (
@@ -68,7 +70,8 @@ function Map({ markers, onClick }) {
           position={[marker.latitude, marker.longitude]}
           icon={
             new L.Icon({
-              iconUrl: 'https://cdn.mapmarker.io/api/v1/pin?size=50&background=%23FF5533&text=%20&icon=fa-map-marker',
+              iconUrl:
+                'https://cdn.mapmarker.io/api/v1/pin?size=50&background=%23FF5533&text=%20&icon=fa-map-marker',
               iconSize: [25, 41],
               iconAnchor: [12, 41],
               popupAnchor: [1, -34],
@@ -92,9 +95,9 @@ function MyComponent() {
   useEffect(() => {
     const fetchMarkers = async () => {
       const { data } = await supabase
-      .from('latlong')
-      .select('latitude,longitude,StateName')
-      .limit(1);
+        .from('latlong')
+        .select('latitude,longitude,StateName')
+        .limit(1);
       setMarkers(data);
     };
 
@@ -102,14 +105,17 @@ function MyComponent() {
   }, []);
 
   useEffect(() => {
-    const latlong = supabase.channel('custom-insert-channel').on(
-      'postgres_changes',
-      { event: 'INSERT', schema: 'public', table: 'latlong' },
-      (payload) => {
-        console.log('Change received!', payload);
-        setMarkers((prevMarkers) => [...prevMarkers, payload]);
-      }
-    ).subscribe();
+    const latlong = supabase
+      .channel('custom-insert-channel')
+      .on(
+        'postgres_changes',
+        { event: 'INSERT', schema: 'public', table: 'latlong' },
+        (payload) => {
+          console.log('Change received!', payload);
+          setMarkers((prevMarkers) => [...prevMarkers, payload]);
+        }
+      )
+      .subscribe();
 
     return () => {
       latlong.unsubscribe();
@@ -120,7 +126,6 @@ function MyComponent() {
     const { latlng } = event;
     console.log('Clicked on map:', latlng);
   };
-  
 
   return (
     <div>
@@ -130,7 +135,6 @@ function MyComponent() {
 }
 
 export default MyComponent;
-
 
 // import './olmap.css'
 // import { useEffect } from 'react';

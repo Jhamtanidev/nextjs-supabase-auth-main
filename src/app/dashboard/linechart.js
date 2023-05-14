@@ -2,15 +2,18 @@ import { useEffect, useState } from "react"
 import React from 'react';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
-import { Chart } from "chart.js";
+// import {Chart} from 'chart.js';
+import Chart from 'chart.js/auto';
+
 import './dashboard.module.css'
 function Example({records}) {
 
   
   
   useEffect(() => {
+    // let myChart = null;
     var ctx = document.getElementById('myChart').getContext('2d');
-    var myChart = new Chart(ctx
+     var myChart = new Chart(ctx
     , {
       type: 'line',
       
@@ -44,7 +47,11 @@ function Example({records}) {
         ]
       },
     });
-    
+    return () => {
+      if (myChart) {
+        myChart.destroy();
+      }
+    };
   }, [records])
   
   
