@@ -4,10 +4,11 @@ import { useState } from 'react';
 import cn from 'classnames';
 import { Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
-import '../Auth/SignIn.css';
 
 import { useAuth, VIEWS } from 'src/components/AuthProvider';
 import supabase from 'src/lib/supabase-browser';
+
+import './SignIn.css';
 
 const SignInSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Required'),
@@ -75,7 +76,7 @@ const SignIn = () => {
             </button>
 
             <button
-              className="button-inverse w-full"
+              className="button-inverse  w-full"
               type="submit"
               style={{ color: 'blue', backgroundColor: '#d8f9ff', border: 'black' }}
             >
@@ -91,7 +92,7 @@ const SignIn = () => {
         onClick={() => setView(VIEWS.SIGN_UP)}
         style={{ color: 'blue', border: 'blue' }}
       >
-        Don&apos;t have an account? Sign Up.
+        Don;t have an account? Sign Up.
       </button>
     </div>
   );

@@ -1,3 +1,6 @@
+/* eslint-disable no-console */
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 // Import Leaflet and Supabase libraries
 // import L from 'leaflet';
 // import supabase from 'src/lib/supabase-browser';
@@ -39,9 +42,11 @@
 //   });
 
 import { useEffect, useState } from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 import L from 'leaflet';
+
 import supabase from 'src/lib/supabase-browser';
+
 import './olmap.module.css';
 
 function Map({ markers, onClick }) {

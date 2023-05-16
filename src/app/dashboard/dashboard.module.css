@@ -20,6 +20,9 @@
   [data-popup='tooltip'].popup-overlay {
     background: transparent;
   }
+  .popup-close{
+    color: #fff;
+  }
 
   @media (min-width: 640px) {
     .container {

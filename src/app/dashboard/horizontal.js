@@ -1,7 +1,8 @@
+/* eslint-disable tailwindcss/no-custom-classname */
+/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 // import Warper from './Warper';
 import Popup from 'reactjs-popup';
-//
 
 const ControlledPopup = () => {
   const [open, setOpen] = useState(true);
@@ -13,7 +14,7 @@ const ControlledPopup = () => {
       </button> */}
       <Popup open={open} closeOnDocumentClick onClose={closeModal}>
         <div role="alert">
-          <button className="close" onClick={closeModal}>
+          <button className="close" type="button" onClick={closeModal}>
             &times;
           </button>
           <div className="rounded-t bg-red-500 px-4 py-2 font-bold text-white">
@@ -45,7 +46,7 @@ const Alertaverage = ({ newReco }) => {
       </button> */}
       <Popup open={open} closeOnDocumentClick onClose={closeModal}>
         <div role="alert">
-          <button className="close" onClick={closeModal}>
+          <button className="close" type="button" onClick={closeModal}>
             &times;
           </button>
           <div className="rounded-t bg-red-500 px-4 py-2 font-bold text-white">
@@ -67,4 +68,4 @@ const Alertaverage = ({ newReco }) => {
     </div>
   );
 };
-export { ControlledPopup, Alertaverage };
+export { Alertaverage, ControlledPopup };

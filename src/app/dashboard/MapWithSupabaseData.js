@@ -1,11 +1,16 @@
-import React, { useState, useEffect } from 'react';
+/* eslint-disable no-shadow */
+/* eslint-disable no-console */
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/jsx-key */
+import React, { useEffect, useState } from 'react';
+import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 // import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
-import 'leaflet/dist/leaflet.css';
-import './map.css';
+
 import supabase from 'src/lib/supabase-browser';
 
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
+import './map.css';
 
 function MapWithSupabaseData() {
   const [locations, setLocations] = useState([]);
@@ -20,7 +25,6 @@ function MapWithSupabaseData() {
         console.error(error);
       } else {
         setLocations(locations);
-        console.log(locations);
       }
     }
 

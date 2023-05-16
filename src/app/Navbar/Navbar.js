@@ -1,9 +1,16 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable react/prop-types */
+
 'use client';
+
 import { useState } from 'react';
-// import "../Navbar/Navbar.module.css"
+
+import './Navbar.module.css';
+
 function NavLink({ to, children }) {
   return (
-    <a href={to} className={`mx-4`}>
+    <a href={to} className="mx-4">
       {children}
     </a>
   );
@@ -11,13 +18,13 @@ function NavLink({ to, children }) {
 function MobileNav({ open, setOpen }) {
   return (
     <div
-      className={`absolute left-0 top-0 h-screen w-screen transform bg-white ${
+      className={`absolute left-0 top-0 h-screen w-screen bg-white${
         open ? '-translate-x-0' : '-translate-x-full'
-      } drop-shadow-md filter transition-transform duration-300 ease-in-out `}
+      } drop-shadow-md transition-transform duration-300 ease-in-out `}
     >
-      <div className="flex h-20 items-center justify-center bg-white drop-shadow-md filter">
+      <div className="flex h-20 items-center justify-center bg-white drop-shadow-md">
         {' '}
-        {/*logo container*/}
+        {/* logo container */}
         <a className="text-xl font-semibold" href="/">
           LOGO
         </a>
@@ -76,7 +83,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="flex h-20 items-center bg-white px-4 py-4 drop-shadow-md filter">
+    <nav className="flex h-20 items-center bg-white p-4 drop-shadow-md">
       <MobileNav open={open} setOpen={setOpen} />
       <div className="flex w-3/12 items-center">
         <a className="text-2xl font-semibold" href="/">
@@ -92,7 +99,7 @@ export default function Navbar() {
         >
           {/* hamburger button */}
           <span
-            className={`h-1 w-full transform rounded-lg bg-black transition duration-300 ease-in-out ${
+            className={`h-1 w-full rounded-lg bg-black transition duration-300 ease-in-out${
               open ? 'translate-y-3.5 rotate-45' : ''
             }`}
           />
@@ -102,7 +109,7 @@ export default function Navbar() {
             }`}
           />
           <span
-            className={`h-1 w-full transform rounded-lg bg-black transition duration-300 ease-in-out ${
+            className={`h-1 w-full rounded-lg bg-black transition duration-300 ease-in-out${
               open ? '-translate-y-3.5 -rotate-45' : ''
             }`}
           />

@@ -1,9 +1,12 @@
+/* eslint-disable no-unused-vars */
+
 'use client';
 
 import Link from 'next/link';
 
 import Auth from 'src/components/Auth';
 import { useAuth, VIEWS } from 'src/components/AuthProvider';
+
 import Account from '../components/Account';
 // import Data from 'src/app/dashboard/page.js';
 // import { ThemeSupa } from '@supabase/auth-ui-shared';

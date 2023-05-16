@@ -1,17 +1,29 @@
+/* eslint-disable tailwindcss/no-custom-classname */
+/* eslint-disable no-shadow */
+/* eslint-disable no-console */
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/jsx-no-comment-textnodes */
+/* eslint-disable react/jsx-key */
+/* eslint-disable no-undef */
+
 'use client';
-import React from 'react';
+
+import React, { useEffect, useState } from 'react';
 import Popup from 'reactjs-popup';
-import 'reactjs-popup/dist/index.css';
-import { useState, useEffect } from 'react';
-import { useAuth } from '../../components/AuthProvider';
+
 import supabase from 'src/lib/supabase-browser';
-import Example from './linechart';
+
+import { useAuth } from '../../components/AuthProvider';
+
 import alertaverage, { Alertaverage, ControlledPopup } from './horizontal';
+import Example from './linechart';
 // import MapWithSupabaseData from './map';
 import MapWithSupabaseData from './MapWithSupabaseData';
-import './dashboard.module.css';
 // import OlMap from './OLmap';
 import MyComponent from './OLmap';
+
+import 'reactjs-popup/dist/index.css';
+import './dashboard.module.css';
 // import Map from './OLmap';
 // import Track from './OLmap';
 // import Olmap from './OLmap';
@@ -95,10 +107,10 @@ const Data = () => {
       setLoading(true);
       const { data: Records } = await supabase
         .from('wanderfloatesp')
-        .select('ph,tds,turb,temp,sol_vol,bat_vol,created_at') //columns to select from the database
+        .select('ph,tds,turb,temp,sol_vol,bat_vol,created_at') // columns to select from the database
         .range(0, 9)
         // .eq("id", user?.id) //comparison function to return only data with the user id matching the current logged in user
-        //check if the done column is equal to false
+        // check if the done column is equal to false
         .order('created_at', { ascending: false }); // sort the data so the last item comes on top;
       console.log(Records);
       if (Records != null) {
@@ -115,11 +127,11 @@ const Data = () => {
       setLoading(true);
       const { data: Reco } = await supabase
         .from('wanderfloatesp')
-        .select('created_at,temp ') //columns to select from the database
+        .select('created_at,temp ') // columns to select from the database
         .gt('temp', 20)
         .range(0, 9)
         // .eq("id", user?.id) //comparison function to return only data with the user id matching the current logged in user
-        //check if the done column is equal to false
+        // check if the done column is equal to false
         // .order("id", { ascending: false }); // sort the data so the last item comes on top;
         .order('created_at', { ascending: false }); // sort the data so the last item comes on top;
 
@@ -138,7 +150,7 @@ const Data = () => {
       setLoading(true);
       const { data: RecopH } = await supabase
         .from('wanderfloatesp')
-        .select('created_at,ph ') //columns to select from the database
+        .select('created_at,ph ') // columns to select from the database
         .gt('ph', 8.5)
         .order('created_at', { ascending: false }); // sort the data so the last item comes on top;
 
@@ -161,7 +173,7 @@ const Data = () => {
       setLoading(true);
       const { data: Recoturb } = await supabase
         .from('wanderfloatesp')
-        .select('created_at,turb ') //columns to select from the database
+        .select('created_at,turb ') // columns to select from the database
         .gt('turb', 5)
         .order('created_at', { ascending: false }); // sort the data so the last item comes on top;
 
@@ -180,7 +192,7 @@ const Data = () => {
       setLoading(true);
       const { data: Recotds } = await supabase
         .from('wanderfloatesp')
-        .select('created_at,tds ') //columns to select from the database
+        .select('created_at,tds ') // columns to select from the database
         .gt('tds', 2000)
         .order('created_at', { ascending: false }); // sort the data so the last item comes on top;
 
@@ -333,7 +345,7 @@ const Data = () => {
               </p>
 
               <div className="d-flex align-items-center flex-row">
-                <i className="fas fa-cloud fa-3x"></i>
+                <i className="fas fa-cloud fa-3x" />
               </div>
             </div>
           </div>
@@ -382,7 +394,8 @@ const Data = () => {
                 <i className="fas fa-cloud fa-3x">
                   1.IS 10500-2012 Acceptable limits:6.5-8.5
                   <br />
-                  permissible:No relaxation<br></br>
+                  permissible:No relaxation
+                  <br />
                   2.Suggestions:Increase pH by soda ash Decrease pH by white
                   vinegar/citric acid
                 </i>
@@ -391,7 +404,7 @@ const Data = () => {
           </div>
         </div>
 
-        <h2 class="mt-4 text-xl">Records having greater than 5 NTU Turbidity</h2>
+        <h2 className="mt-4 text-xl">Records having greater than 5 NTU Turbidity</h2>
 
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
           <table className="w-full text-left text-sm text-gray-500 dark:text-gray-400">
@@ -498,8 +511,8 @@ const Data = () => {
         {/* <Horizontalchart records={Records.map((record)=>record)}/> */}
       </div>
       {/* <div>  <MapWithSupabaseData />   hey               </div> */}
-      {/* { Open ?  <ControlledPopup/> : false }
-      { RecoAvg ?  <Alertaverage  newReco={Records.map((record) => record)} /> : false } */}
+      {Open ? <ControlledPopup /> : false}
+      {RecoAvg ? <Alertaverage newReco={Records.map((record) => record)} /> : false}
       <div className="container">
         {/* <Map />    */}
         {/* <OlMap />    */}

@@ -1,50 +1,53 @@
-import { useEffect, useState } from "react"
-import React from 'react';
+/* eslint-disable tailwindcss/no-custom-classname */
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
+import React, { useEffect, useState } from 'react';
 import Popup from 'reactjs-popup';
-import 'reactjs-popup/dist/index.css';
 // import {Chart} from 'chart.js';
 import Chart from 'chart.js/auto';
 
-import './dashboard.module.css'
-function Example({records}) {
+import 'reactjs-popup/dist/index.css';
+import './dashboard.module.css';
 
-  
-  
+function Example({ records }) {
   useEffect(() => {
     // let myChart = null;
-    var ctx = document.getElementById('myChart').getContext('2d');
-     var myChart = new Chart(ctx
-    , {
+    const ctx = document.getElementById('myChart').getContext('2d');
+    const myChart = new Chart(ctx, {
       type: 'line',
-      
+
       data: {
-        labels:records.map(Record=>Record.created_at),
-        datasets: [{
-          data: records.map(Record=>Record.temp),
-          label: "Temperature",
-          borderColor: "#3e95cd",
-          backgroundColor: "#7bb6dd",
-          fill: false,
-        }, {
-          data: records.map(Record=>Record.ph),
-          label: "pH",
-          borderColor: "#3cba9f",
-          backgroundColor: "#71d1bd",
-          fill: false,
-        }, {
-          data: records.map(Record=>Record.turb),
-          label: "Turbidity",
-          borderColor: "#ffa500",
-          backgroundColor: "#ffc04d",
-          fill: false,
-        }, {
-          data: records.map(Record=>Record.tds),
-          label: "TDS",
-          borderColor: "#c45850",
-          backgroundColor: "#d78f89",
-          fill: false,
-        }
-        ]
+        labels: records.map((Record) => Record.created_at),
+        datasets: [
+          {
+            data: records.map((Record) => Record.temp),
+            label: 'Temperature',
+            borderColor: '#3e95cd',
+            backgroundColor: '#7bb6dd',
+            fill: false,
+          },
+          {
+            data: records.map((Record) => Record.ph),
+            label: 'pH',
+            borderColor: '#3cba9f',
+            backgroundColor: '#71d1bd',
+            fill: false,
+          },
+          {
+            data: records.map((Record) => Record.turb),
+            label: 'Turbidity',
+            borderColor: '#ffa500',
+            backgroundColor: '#ffc04d',
+            fill: false,
+          },
+          {
+            data: records.map((Record) => Record.tds),
+            label: 'TDS',
+            borderColor: '#c45850',
+            backgroundColor: '#d78f89',
+            fill: false,
+          },
+        ],
       },
     });
     return () => {
@@ -52,24 +55,24 @@ function Example({records}) {
         myChart.destroy();
       }
     };
-  }, [records])
-  
-  
+  }, [records]);
+
   // console.log(records);
   return (
     <>
-   
       {/* line chart */}
-      <div className="graph" style={{backgroundColor:"black"}}>
-      <h1 className="w-[110px] mx-auto mt-10 text-xl font-semibold capitalize ">line Chart</h1>
-      <div className="w-[1100px] h-screen flex mx-auto my-auto">
-        <div className='border border-gray-400 pt-0 rounded-xl  w-full h-fit my-auto  shadow-xl'>
-          <canvas id='myChart'></canvas>
+      <div className="graph" style={{ backgroundColor: 'black' }}>
+        <h1 className="mx-auto mt-10 w-[110px] text-xl font-semibold capitalize ">
+          line Chart
+        </h1>
+        <div className="m-auto flex h-screen w-[1100px]">
+          <div className="my-auto h-fit w-full rounded-xl  border border-gray-400 pt-0  shadow-xl">
+            <canvas id="myChart" />
+          </div>
         </div>
       </div>
-      </div>
     </>
-  )
+  );
 }
 
 export default Example;

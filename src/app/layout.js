@@ -1,9 +1,11 @@
 import { AuthProvider } from 'src/components/AuthProvider';
 import createClient from 'src/lib/supabase-server';
+
+import Footer from './Footer/footer';
 import Navbar from './Navbar/Navbar';
+
 // import "../app/layout.module.css";
 import 'src/styles/globals.css';
-import Footer from './Footer/footer';
 
 // do not cache this layout
 export const revalidate = 0;
@@ -27,11 +29,6 @@ export default async function RootLayout({ children }) {
           <Navbar />
         </div>
         <section>
-          <div className="air air1"></div>
-          <div className="air air2"></div>
-          <div className="air air3"></div>
-          <div className="air air4"></div>
-
           <div className="flex min-h-screen flex-col items-center justify-center py-2">
             <main className="flex w-full flex-1 shrink-0 flex-col items-center justify-center px-8 text-center sm:px-20">
               <h1 className="mb-12 text-5xl font-bold sm:text-6xl">
