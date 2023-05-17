@@ -23,7 +23,7 @@ function MobileNav({ open, setOpen }) {
       } drop-shadow-md transition-transform duration-300 ease-in-out `}
     >
       <div className="flex h-20 items-center justify-center bg-white drop-shadow-md">
-        {' '}
+        {/* <div className="flex h-full w-full rounded-lg bg-white shadow-md " /> */}
         {/* logo container */}
         <a className="text-xl font-semibold" href="/">
           LOGO

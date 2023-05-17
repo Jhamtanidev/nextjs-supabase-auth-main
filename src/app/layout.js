@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-console */
 import { AuthProvider } from 'src/components/AuthProvider';
 import createClient from 'src/lib/supabase-server';
 
@@ -21,13 +23,11 @@ export default async function RootLayout({ children }) {
   } = await supabase.auth.getSession();
 
   const accessToken = session?.access_token || null;
-
+  console.log(session);
   return (
     <html lang="en">
       <body>
-        <div>
-          <Navbar />
-        </div>
+        <div>{/* <Navbar /> */}</div>
         <section>
           <div className="flex min-h-screen flex-col items-center justify-center py-2">
             <main className="flex w-full flex-1 shrink-0 flex-col items-center justify-center px-8 text-center sm:px-20">

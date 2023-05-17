@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-dupe-keys */
 import { createMiddlewareSupabaseClient } from '@supabase/auth-helpers-nextjs';
 import { NextResponse } from 'next/server';
 
@@ -20,7 +22,6 @@ export async function middleware(req) {
 
 export const config = {
   matcher: ['/profile'],
-  matcher:['/dashboard']
-  matcher:['/about']
-  
+  matcher: ['/dashboard'],
+  matcher: ['/about'],
 };

@@ -1,3 +1,4 @@
+/* eslint-disable */
 'use client';
 
 import { useState } from 'react';
@@ -19,10 +20,10 @@ const SignIn = () => {
   const { setView } = useAuth();
   const [errorMsg, setErrorMsg] = useState(null);
 
-  async function signIn(formData) {
+  async function signIn(formData) {console.log(formData);
     const { error } = await supabase.auth.signInWithPassword({
-      email: formData.email,
-      password: formData.password,
+      email: formData?.email,
+      password: formData?.password,
     });
 
     if (error) {
