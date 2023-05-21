@@ -127,7 +127,6 @@
 //   );
 // }
 
-
 // import React, { useState } from 'react';
 
 // function Nav() {
@@ -229,7 +228,6 @@
 // }
 
 // export default Nav;
-
 
 // import React, { useEffect, useState } from 'react';
 // import { IonIcon } from '@ionic/react';

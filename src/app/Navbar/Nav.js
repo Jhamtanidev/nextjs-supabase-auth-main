@@ -1,3 +1,9 @@
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable react/button-has-type */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/interactive-supports-focus */
+
 'use client';
 
 import React, { useState } from 'react';
@@ -10,19 +16,17 @@ function Nav() {
   };
 
   return (
-    <nav className="p-5 bg-white shadow md:flex md:items-center md:justify-between">
-      <div className="flex justify-between items-center">
-        <span className="text-2xl font-[Poppins] cursor-pointer">
-          <img
-            className="h-10 inline"
-            src=""
-            
-          />
-          <a href='/'>Wander<span className="font-black text-blue-400">Sub</span></a>
+    <nav className="bg-white p-5 shadow md:flex md:items-center md:justify-between">
+      <div className="flex items-center justify-between">
+        <span className="cursor-pointer font-[Poppins] text-2xl">
+          <img className="inline h-10" src="" />
+          <a href="/">
+            Wander<span className="font-black text-blue-400">Sub</span>
+          </a>
         </span>
 
         <span
-          className="text-3xl cursor-pointer mx-2 md:hidden block"
+          className="mx-2 block cursor-pointer text-3xl md:hidden"
           onClick={toggleMenu}
           role="button"
           aria-label="Toggle Menu"
@@ -63,28 +67,26 @@ function Nav() {
 
       <ul
         className={` ${
-          menuOpen ?  'block' : 'hidden'
-        } md:flex md:items-center md:bg-white w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 transition-all ease-in duration-500`}
+          menuOpen ? 'block' : 'hidden'
+        } left-0 w-full py-4 pl-7 transition-all duration-500 ease-in md:flex md:w-auto md:items-center md:bg-white md:py-0 md:pl-0`}
       >
         <li className="mx-4 my-6 md:my-0">
-          <a href="/" className="text-xl hover:text-cyan-500 duration-500">
+          <a href="/" className="text-xl duration-500 hover:text-cyan-500">
             HOME
           </a>
         </li>
         <li className="mx-4 my-6 md:my-0">
-          <a href="/dashboard" className="text-xl hover:text-cyan-500 duration-500">
+          <a href="/dashboard" className="text-xl duration-500 hover:text-cyan-500">
             DASHBOARD
           </a>
         </li>
         <li className="mx-4 my-6 md:my-0">
-          <a href="/about" className="text-xl hover:text-cyan-500 duration-500">
+          <a href="/about" className="text-xl duration-500 hover:text-cyan-500">
             ABOUT
           </a>
         </li>
-        
-        
 
-        <button className="bg-cyan-400 text-white font-[Poppins] duration-500 px-6 py-2 mx-4 hover:bg-cyan-500 rounded">
+        <button className="mx-4 rounded bg-cyan-400 px-6 py-2 font-[Poppins] text-white duration-500 hover:bg-cyan-500">
           Get started
         </button>
       </ul>
