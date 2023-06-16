@@ -3,6 +3,7 @@
 import { AuthProvider } from 'src/components/AuthProvider';
 import createClient from 'src/lib/supabase-server';
 
+// import MountComponent from '../components/Auth/Mounted_Checler';
 import Footer from './Footer/footer';
 // import Navbar from './Navbar/Navbar';
 import Nav from './Navbar/Nav';
@@ -31,9 +32,9 @@ export default async function RootLayout({ children }) {
         <div>
           <Nav />
         </div>
-        <section className="min-h-screen py-2">
-          <div className="flex flex-col items-center justify-center">
-            <main className="flex w-full flex-1 shrink-0 flex-col items-center justify-center px-4 text-center sm:px-8 md:px-16 lg:px-32">
+        <section className="min-h-screen w-full  py-2">
+          <div className="flex w-full flex-col justify-center">
+            <main className="flex w-full flex-1 shrink-0 flex-col items-center justify-center overflow-hidden px-4 text-center sm:px-2 md:px-16 lg:px-32">
               <h1 className="mb-6 text-3xl font-bold sm:text-5xl md:text-6xl">
                 Wander<span className="font-black text-blue-400">Sub</span>
               </h1>

@@ -5,6 +5,9 @@
 @layer base {
   body {
     background-image: url("../components/images/r5PAzL9.jpg");
+    background-position: center;
+    /* background-repeat: no-repeat;
+    background-size: cover; */
   }
 
   h2 {

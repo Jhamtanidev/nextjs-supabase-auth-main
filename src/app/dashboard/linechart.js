@@ -61,12 +61,9 @@ function Example({ records }) {
   return (
     <>
       {/* line chart */}
-      <div className="graph" style={{ backgroundColor: 'black' }}>
-        <h1 className="mx-auto mt-10 w-[110px] text-xl font-semibold capitalize ">
-          line Chart
-        </h1>
-        <div className="m-auto flex h-screen w-[1100px]">
-          <div className="my-auto h-fit w-full rounded-xl  border border-gray-400 pt-0  shadow-xl">
+      <div className="graph my-8 w-screen overflow-x-scroll rounded-xl bg-black py-12">
+        <div className="m-auto flex max-md:w-[60rem] md:w-[1100px] ">
+          <div className="my-auto w-full pt-0  shadow-xl md:rounded-xl md:border  md:border-gray-400">
             <canvas id="myChart" />
           </div>
         </div>
