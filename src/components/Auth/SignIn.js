@@ -93,7 +93,7 @@ const SignIn = () => {
         onClick={() => setView(VIEWS.SIGN_UP)}
         style={{ color: 'blue', border: 'blue' }}
       >
-        Don;t have an account? Sign Up.
+        Don't have an account? Sign Up.
       </button>
     </div>
   );

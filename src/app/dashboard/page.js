@@ -107,7 +107,7 @@ const Data = () => {
       setLoading(true);
       const { data: Records } = await supabase
         .from('wanderfloatesp')
-        .select('ph,tds,turb,temp,sol_vol,bat_vol,created_at') // columns to select from the database
+        .select('ph,tds,turb,temp,Bat_curr,bat_vol,created_at') // columns to select from the database
         .range(0, 9)
         // .eq("id", user?.id) //comparison function to return only data with the user id matching the current logged in user
         // check if the done column is equal to false
@@ -280,7 +280,7 @@ const Data = () => {
                         TDS
                       </th>
                       <th scope="col" className="py-3 md:px-6">
-                        Solar_voltage
+                        Battery_current
                       </th>
                       <th scope="col" className="py-3 md:px-6">
                         Battery_voltage
@@ -301,7 +301,7 @@ const Data = () => {
                         <td className="px-6 py-4">{Record.ph}</td>
                         <td className="px-6 py-4">{Record.turb}</td>
                         <td className="px-6 py-4">{Record.tds}</td>
-                        <td className="px-6 py-4">{Record.sol_vol}</td>
+                        <td className="px-6 py-4">{Record.Bat_curr}</td>
                         <td className="px-6 py-4">{Record.bat_vol}</td>
                       </tr>
                     ))}
